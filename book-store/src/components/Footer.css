@@ -1,0 +1,71 @@
+/* Footer.css */
+.footer-container {
+  background-color: #333; /* Màu nền của footer */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-column {
+  text-align: left;
+}
+
+.footer-link a {
+  display: block;
+  margin: 5px 0;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-link a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-contact a {
+  display: block;
+  margin: 5px 0;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: white;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: white;
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+/* Đảm bảo footer luôn ở đáy màn hình */
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer-container {
+  margin-top: auto; /* Đẩy footer xuống đáy khi nội dung ít */
+}
