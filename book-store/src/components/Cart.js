@@ -4,6 +4,9 @@ import { CartContext } from './CartContext';  // Import CartContext
 const Cart = () => {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);  // Lấy các phương thức từ CartContext
 
+  // Tính tổng tiền của giỏ hàng
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
   const handleCheckout = () => {
     // Xử lý thanh toán tại đây (ví dụ: chuyển hướng đến trang thanh toán)
     alert('Thanh toán thành công!');
@@ -17,7 +20,7 @@ const Cart = () => {
       ) : (
         <div>
           {cart.map((item, index) => (
-            <div key={`${item.id}-${index}`}className="flex justify-between items-center mb-4 p-4 border-b">
+            <div key={`${item.id}-${index}`} className="flex justify-between items-center mb-4 p-4 border-b">
               <div className="flex">
                 <img src={`http://localhost/book-store-backend/public/images/${item.images}`} alt={item.title} className="w-20 h-20 object-contain mr-4" />
                 <div>
@@ -50,7 +53,10 @@ const Cart = () => {
             </div>
           ))}
           <div className="flex justify-between items-center mt-6">
-            <button onClick={handleCheckout} className=" bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-500 transition px-6 py-3 ">
+            <div className="text-xl font-semibold">
+              <p>Tổng thanh toán: {totalPrice}.000 VNĐ</p>
+            </div>
+            <button onClick={handleCheckout} className="bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-500 transition px-6 py-3">
               Thanh toán
             </button>
           </div>
